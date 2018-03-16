@@ -1,4 +1,4 @@
-package webu_test
+package httpu_test
 
 import (
 	"bytes"
@@ -6,13 +6,13 @@ import (
 	"net/http"
 	"net/http/httptest"
 
-	"github.com/gohxs/webu"
+	"github.com/gohxs/httpu"
 )
 
 func ExampleMethods() {
 
 	mux := http.NewServeMux()
-	mux.Handle("/", webu.Methods{
+	mux.Handle("/", httpu.Methods{
 		"GET": func(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("HandleGet")
 		},
@@ -30,7 +30,7 @@ func ExampleMethods() {
 
 func ExampleMethodFunc() {
 	mux := http.NewServeMux()
-	methods := webu.Methods{}
+	methods := httpu.Methods{}
 	methods.Get(func(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("HandleGet")
 	})

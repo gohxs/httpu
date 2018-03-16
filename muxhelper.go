@@ -1,4 +1,4 @@
-package webu
+package httpu
 
 import (
 	"context"
@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/gohxs/webu/chain"
+	"github.com/gohxs/httpu/chain"
 )
 
 // Muxer http.ServeMux compatible muxer interface
@@ -36,7 +36,7 @@ func (m *MuxPrefix) HandleFunc(pattern string, handlerFunc func(w http.ResponseW
 	m.Muxer.HandleFunc(m.prefix+pattern, handlerFunc)
 }
 
-// MuxHelper webu flavoured muxer
+// MuxHelper httpu flavoured muxer
 type MuxHelper interface {
 	Muxer
 	Pattern(...string) string

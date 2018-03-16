@@ -1,5 +1,5 @@
 // Experiment not stable
-package webu
+package httpu
 
 import (
 	"encoding/json"

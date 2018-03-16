@@ -3,8 +3,6 @@ package main
 import (
 	"log"
 	"net/http"
-
-	"github.com/gohxs/webu"
 )
 
 func main() {
@@ -12,7 +10,7 @@ func main() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/api/", func(w http.ResponseWriter, r *http.Request) {
-		extra := webu.Param(r)
+		extra := httpu.Param(r)
 
 		log.Println("Extra:", extra)
 	})

@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/gohxs/webu/chain"
+	"github.com/gohxs/httpu/chain"
 )
 
 func chainTest(t *testing.T, name string) chain.Func {

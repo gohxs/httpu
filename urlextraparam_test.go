@@ -1,18 +1,18 @@
-package webu_test
+package httpu_test
 
 import (
 	"fmt"
 	"net/http"
 	"net/http/httptest"
 
-	"github.com/gohxs/webu"
+	"github.com/gohxs/httpu"
 )
 
 func ExampleParams() {
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		p := webu.Params(r)
+		p := httpu.Params(r)
 		fmt.Println("Param:", len(p), p)
 	})
 	s := httptest.NewServer(mux)
@@ -28,7 +28,7 @@ func ExampleParams2() {
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/v1/thing/", func(w http.ResponseWriter, r *http.Request) {
-		p := webu.Params(r)
+		p := httpu.Params(r)
 		fmt.Println("Param:", len(p), p)
 	})
 	s := httptest.NewServer(mux)
@@ -44,7 +44,7 @@ func ExampleParams2() {
 func ExampleParamsQuery() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/query/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("Param:", webu.Params(r))
+		fmt.Println("Param:", httpu.Params(r))
 		fmt.Printf("Query: a:%s b:%s\n", r.URL.Query()["a"], r.URL.Query()["b"])
 	})
 	s := httptest.NewServer(mux)

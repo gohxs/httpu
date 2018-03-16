@@ -1,4 +1,4 @@
-package webu
+package httpu
 
 import (
 	"net/http"
@@ -8,7 +8,7 @@ import (
 )
 
 //StaticHandler serves file or execute handler if file not found
-// webu.StaticHandler("assets", "index.html") // if not found goes to index.html
+// httpu.StaticHandler("assets", "index.html") // if not found goes to index.html
 //
 func StaticHandler(assetsPath string, catch interface{}) http.HandlerFunc {
 

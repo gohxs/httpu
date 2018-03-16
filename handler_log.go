@@ -1,4 +1,4 @@
-package webu
+package httpu
 
 import (
 	"bufio"
@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/gohxs/webu/chain"
+	"github.com/gohxs/httpu/chain"
 )
 
 /////////////////////////

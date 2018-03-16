@@ -1,4 +1,4 @@
-package webu_test
+package httpu_test
 
 import (
 	"fmt"
@@ -7,14 +7,14 @@ import (
 	"net/http/httptest"
 	"os"
 
-	"github.com/gohxs/webu"
+	"github.com/gohxs/httpu"
 )
 
 func ExampleLogHandler() {
 	llog := log.New(os.Stdout, "[main] ", 0)
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", webu.LogHandler(llog, func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/", httpu.LogHandler(llog, func(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Will log")
 	}))
 	s := httptest.NewServer(mux)
@@ -28,12 +28,12 @@ func ExampleLogHandlerNotFound() {
 	llog := log.New(os.Stdout, "[main] ", 0)
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/test/", webu.LogHandler(llog, func(w http.ResponseWriter, r *http.Request) {
-		if len(webu.Params(r)) > 1 {
-			webu.WriteStatus(w, http.StatusExpectationFailed)
+	mux.HandleFunc("/test/", httpu.LogHandler(llog, func(w http.ResponseWriter, r *http.Request) {
+		if len(httpu.Params(r)) > 1 {
+			httpu.WriteStatus(w, http.StatusExpectationFailed)
 			return
 		}
-		webu.WriteStatus(w, http.StatusNotFound)
+		httpu.WriteStatus(w, http.StatusNotFound)
 	}))
 	s := httptest.NewServer(mux)
 	http.Get(s.URL + "/test")

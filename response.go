@@ -1,4 +1,4 @@
-package webu
+package httpu
 
 import (
 	"encoding/json"
@@ -13,7 +13,7 @@ import (
 //WriteJSON Writes json to writer
 //
 //Example:
-//  webu.WriteJSON(w, data)
+//  httpu.WriteJSON(w, data)
 //
 func WriteJSON(w http.ResponseWriter, obj interface{}) error {
 	return json.NewEncoder(w).Encode(obj)
@@ -22,7 +22,7 @@ func WriteJSON(w http.ResponseWriter, obj interface{}) error {
 //ReadJSON reads json into obj
 //
 //Example:
-//  webu.ReadJSON(r, obj)
+//  httpu.ReadJSON(r, obj)
 func ReadJSON(r *http.Request, obj interface{}) error {
 
 	defer r.Body.Close()

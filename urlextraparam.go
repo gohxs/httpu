@@ -1,4 +1,4 @@
-package webu
+package httpu
 
 import (
 	"net/http"

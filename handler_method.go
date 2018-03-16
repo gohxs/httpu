@@ -1,4 +1,4 @@
-package webu
+package httpu
 
 import (
 	"net/http"
@@ -30,7 +30,7 @@ func (m *Methods) Post(handlerFunc http.HandlerFunc) {
 
 //MethodHandler returns a func
 //Single method handler, cannot be chained since it returns not allowed if other methods are called
-// mux.HandleFunc("/api/v1/user",webu.MethodHandler("GET",handleGet))
+// mux.HandleFunc("/api/v1/user",httpu.MethodHandler("GET",handleGet))
 func MethodHandler(method string, handlerFunc http.HandlerFunc) http.HandlerFunc {
 
 	return Methods{method: handlerFunc}.ServeHTTP

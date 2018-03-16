@@ -4,17 +4,16 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gohxs/webu"
-	"github.com/gohxs/webu/chain"
+	"github.com/gohxs/httpu/chain"
 )
 
 func main() {
 	mux := http.NewServeMux()
 
-	c := chain.New(webu.ChainLogger("main"))
+	c := chain.New(httpu.ChainLogger("main"))
 
-	mux.HandleFunc("/", c.Build(webu.CatchAllHandler(func(w http.ResponseWriter, r *http.Request) {
-		param := webu.Param(r)
+	mux.HandleFunc("/", c.Build(httpu.CatchAllHandler(func(w http.ResponseWriter, r *http.Request) {
+		param := httpu.Param(r)
 		log.Println("Param is:", param)
 		if param[0] == "hello" {
 			w.WriteHeader(http.StatusNotFound)

@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gohxs/webu/chain"
+	"github.com/gohxs/httpu/chain"
 )
 
 func chainOne(next http.HandlerFunc) http.HandlerFunc {
